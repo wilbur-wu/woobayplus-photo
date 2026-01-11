@@ -16,12 +16,35 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 1000px;
+    width: 700px;
     height: 100vh;
     padding: 40px;
-    z-index: 100; /* 确保文字始终在图片上方 */
+    z-index: 100;
     display: flex;
     flex-direction: column;
+    color: #333;
+
+    /* --- 新增：动画初始状态 --- */
+    opacity: 0;
+    transform: translateX(-10px); /* 初始向左微移，增加动感 */
+    transition: opacity 1.2s ease, transform 1.2s ease; /* 这里的1.2s可以根据图片淡入速度调整 */
+}
+
+/* --- 新增：动画激活状态 --- */
+.sidebar.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- 首页侧边栏特殊处理 --- */
+/* 如果首页不需要淡入位移，可以单独关掉，或者保持统一 */
+.home .sidebar {
+  color: #ffffff !important;
+}
+
+.home .sidebar.visible {
+    opacity: 1;
+    transform: translateX(-10px);
 }
 
 .brand h1 {
@@ -57,18 +80,28 @@ body {
     color: inherit; /* 继承父级颜色 */
 }
 
-/* --- 场景 1：首页 (body class="home") --- */
-/* 首页文字为白色，左上角布局 */
-.home .sidebar {
-    color: #ffffff; 
+
+/* --- 底部链接 (Footer Links) --- */
+.footer-links {
+    font-size: 1rem; /*
+    line-height: 1.2;
 }
 
-.home .nav-links a {
-    color: rgba(255, 255, 255, 0.7);
+.footer-links a {
+    display: block; /* 每个链接占一行 */
+    margin-bottom: 40px;
+    opacity: 0.6; /* 初始透明度低一点，显得更安静 */
+    transition: opacity 0.3s;
 }
 
+.footer-links a:hover {
+    opacity: 1; /* 鼠标悬停时变亮 */
+}
+
+/* 首页链接的悬停效果 */
 .home .nav-links a:hover {
-    color: #ffffff;
+    opacity: 1;
+    color: #fff;
 }
 
 /* 首页全屏背景图 */
