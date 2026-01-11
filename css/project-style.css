@@ -1,0 +1,84 @@
+
+/* --- 项目详情页专用样式 --- */
+
+.content-wrapper {
+    margin-left: 280px; /* 与侧边栏宽度保持一致 */
+    padding: 60px;
+}
+
+/* 标题区域*/
+.project-header {
+    display: flex;
+    justify-content: space-between; /* 标题在左，描述在右 */
+    margin-bottom: 60px;
+    align-items: flex-start;
+}
+
+.title-group h2 { 
+    font-size: 2.2rem; 
+    font-weight: bold;
+    line-height: 1.5;
+    color: #555; 
+}
+
+.title-group h3 { 
+    font-size: 1.2rem; 
+    font-weight: bold;
+    line-height: 0.5;
+    color: #555; 
+}
+
+.description { 
+    max-width: 800px; 
+    font-size: 1rem; 
+    color: #555; 
+    line-height: 1.2;
+}
+
+/* --- 动态照片墙 (瀑布流) --- */
+.photo-columns {
+    column-count: 3; /* 你可以根据喜好改为 2 或 3 */
+    column-gap: 20px; /* 左右间距 */
+}
+
+.description p {
+    /* 这是段落间距 */
+    margin-bottom: 10px; 
+}
+
+.photo-columns img {
+    width: 100%;
+    height: auto; /* 保证比例绝对不变 */
+    display: block;
+    margin-bottom: 20px; /* 上下间距 */
+    object-fit: contain;
+}
+
+.photo-columns img {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s ease-out;
+}
+
+.photo-columns img.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 跨列的大图：有些图你想让它占满全屏宽度时使用 */
+.img-wide {
+    column-span: all;
+    margin: 50px 0;
+}
+
+/* 手机端适配 */
+@media (max-width: 1024px) {
+    .photo-columns { column-count: 2; }
+}
+
+@media (max-width: 768px) {
+    .content-wrapper { margin-left: 0; padding: 20px; }
+    .project-header { flex-direction: column; }
+    .description { margin-top: 20px; }
+    .photo-columns { column-count: 1; }
+}

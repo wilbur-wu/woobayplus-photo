@@ -1,0 +1,108 @@
+/* --- 基础重置 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1;
+    background-color: #ffffff;
+}
+
+/* --- 通用侧边栏 (Sidebar) 基础结构 --- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    height: 100vh;
+    padding: 40px;
+    z-index: 100; /* 确保文字始终在图片上方 */
+    display: flex;
+    flex-direction: column;
+}
+
+.brand h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.brand p {
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    margin-bottom: 5px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: inherit; /* 继承父级颜色 */
+}
+
+/* --- 场景 1：首页 (body class="home") --- */
+/* 首页文字为白色，左上角布局 */
+.home .sidebar {
+    color: #ffffff; 
+}
+
+.home .nav-links a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.home .nav-links a:hover {
+    color: #ffffff;
+}
+
+/* 首页全屏背景图 */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.background-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 核心：缩放时比例不变且铺满全屏 */
+}
+
+/* --- 移动端适配 --- */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .gallery {
+        margin-left: 0;
+        padding: 20px;
+        grid-template-columns: 1fr; /* 手机端单列显示 */
+    }
+    
+    .home .background-container {
+        position: absolute;
+    }
+}
