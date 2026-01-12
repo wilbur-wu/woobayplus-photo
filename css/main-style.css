@@ -83,12 +83,10 @@ body {
 
 /* --- 底部链接 (Footer Links) --- */
 .footer-links {
-    font-size: 1rem; /*
-    line-height: 1.2;
+    font-size: 0.9rem;
 }
 
 .footer-links a {
-    display: block; /* 每个链接占一行 */
     margin-bottom: 40px;
     opacity: 0.6; /* 初始透明度低一点，显得更安静 */
     transition: opacity 0.3s;
