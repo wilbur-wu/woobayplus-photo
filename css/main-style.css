@@ -8,7 +8,7 @@
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1;
-    background-color: #ffffff;
+    background-color: #eaeeee;
 }
 
 /* --- 通用侧边栏 (Sidebar) 基础结构 --- */
@@ -22,7 +22,7 @@ body {
     z-index: 100;
     display: flex;
     flex-direction: column;
-    color: #333;
+    color: #24221b;
 
     /* --- 新增：动画初始状态 --- */
     opacity: 0;
@@ -48,16 +48,10 @@ body {
 }
 
 .brand h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
-    letter-spacing: 0.3px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.brand p {
-    font-size: 0.9rem;
-    margin-bottom: 40px;
+    line-height: 1.5;
+    margin-bottom: 112px;
 }
 
 .nav-links {
@@ -66,7 +60,7 @@ body {
 }
 
 .nav-links li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .nav-links a {
@@ -75,25 +69,31 @@ body {
     transition: opacity 0.3s;
 }
 
+.nav-links a:hover {
+    font-weight: bold;
+}
+
 .sidebar a {
     text-decoration: none;
     color: inherit; /* 继承父级颜色 */
 }
 
-
-/* --- 底部链接 (Footer Links) --- */
+/* --- 底部链接：email instagram信息 --- */
 .footer-links {
     font-size: 0.9rem;
+    margin-bottom: 20px;
 }
 
 .footer-links a {
-    margin-bottom: 40px;
-    opacity: 0.6; /* 初始透明度低一点，显得更安静 */
+    margin-bottom: 60px;
+    opacity: 0.8; /* 初始透明度較低*/
     transition: opacity 0.3s;
 }
 
 .footer-links a:hover {
-    opacity: 1; /* 鼠标悬停时变亮 */
+    opacity: 0.8; /* 鼠标悬停时变亮 */
+    font-weight: bold;
+    color:#24221b
 }
 
 /* 首页链接的悬停效果 */

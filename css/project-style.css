@@ -18,20 +18,20 @@
     font-size: 2.2rem; 
     font-weight: bold;
     line-height: 1.5;
-    color: #555; 
+    color: #363636; 
 }
 
 .title-group h3 { 
     font-size: 1.2rem; 
     font-weight: bold;
     line-height: 0.5;
-    color: #555; 
+    color: #363636; 
 }
 
 .description { 
     max-width: 800px; 
     font-size: 1rem; 
-    color: #555; 
+    color: #363636; 
     line-height: 1.2;
 }
 
