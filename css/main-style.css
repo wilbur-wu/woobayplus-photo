@@ -137,3 +137,80 @@ body {
         position: absolute;
     }
 }
+
+/* Ensure the parent nav container acts as the anchor point */
+.nav-links {
+    list-style: none;
+    flex-grow: 1;
+    position: relative; /* CRITICAL: Anchors the second column precisely */
+}
+
+/* Hide the radio checkbox logic visually */
+.toggle-checkbox {
+    display: none;
+}
+
+/* Base Category Labels */
+.category-label {
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.3s, font-weight 0.3s;
+    display: inline-block;
+    position: relative;
+}
+
+.category-label:hover {
+    font-weight: bold;
+}
+
+/* Column 2 Layout: Positioned elegantly next to column 1 */
+.submenu-wrapper {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 0;        /* Aligns perfectly flush with the first item in your nav list */
+    left: 120px;   /* FIXED GAP: Significantly closer to the categories to remove the huge white space */
+    list-style: none;
+    padding: 0;
+}
+
+/* Styling for the second column links (Muted Gray Style) */
+.submenu-wrapper li {
+    margin-bottom: 10px;
+}
+
+.submenu-wrapper a {
+    color: #7d7b75 !important; 
+    font-size: 0.95rem;
+    font-weight: normal !important;
+    transition: color 0.3s;
+    white-space: nowrap; /* Prevents text elements from breaking onto awkward lines */
+}
+
+.submenu-wrapper a:hover {
+    color: #24221b !important; 
+}
+
+/* --- Display & Toggle Logic --- */
+/* Matches the radio selector to display the chosen column */
+.toggle-checkbox:checked ~ .submenu-wrapper {
+    display: block;
+}
+
+/* Optional: Add a clean bullet indicator next to the active open category */
+.toggle-checkbox:checked ~ .category-label::before {
+    content: "•";
+    position: absolute;
+    left: -12px;
+    color: #24221b;
+}
+
+/* --- Special handling for Home Screen overlay (White text) --- */
+.home .submenu-wrapper a {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+.home .submenu-wrapper a:hover {
+    color: #ffffff !important;
+}
+.home .toggle-checkbox:checked ~ .category-label::before {
+    color: #ffffff;
+}
