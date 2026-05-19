@@ -48,10 +48,10 @@ body {
 }
 
 .brand h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
     line-height: 1.5;
-    margin-bottom: 112px;
+    margin-bottom: 60px;
 }
 
 .nav-links {
@@ -60,7 +60,7 @@ body {
 }
 
 .nav-links li {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .nav-links a {
@@ -138,21 +138,14 @@ body {
     }
 }
 
-/* Ensure the parent nav container acts as the anchor point */
 .nav-links {
     list-style: none;
     flex-grow: 1;
-    position: relative; /* CRITICAL: Anchors the second column precisely */
+    position: relative; 
 }
 
-/* Hide the radio checkbox logic visually */
-.toggle-checkbox {
-    display: none;
-}
-
-/* Base Category Labels */
 .category-label {
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: opacity 0.3s, font-weight 0.3s;
     display: inline-block;
@@ -163,54 +156,69 @@ body {
     font-weight: bold;
 }
 
-/* Column 2 Layout: Positioned elegantly next to column 1 */
+/* Column 2 Layout */
 .submenu-wrapper {
     display: none; /* Hidden by default */
     position: absolute;
-    top: 0;        /* Aligns perfectly flush with the first item in your nav list */
-    left: 120px;   /* FIXED GAP: Significantly closer to the categories to remove the huge white space */
+    top: 0;        
+    left: 111px;   
     list-style: none;
     padding: 0;
 }
 
-/* Styling for the second column links (Muted Gray Style) */
 .submenu-wrapper li {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .submenu-wrapper a {
     color: #7d7b75 !important; 
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: normal !important;
+    position: relative;
     transition: color 0.3s;
-    white-space: nowrap; /* Prevents text elements from breaking onto awkward lines */
+    white-space: nowrap;
 }
 
 .submenu-wrapper a:hover {
     color: #24221b !important; 
 }
 
-/* --- Display & Toggle Logic --- */
-/* Matches the radio selector to display the chosen column */
-.toggle-checkbox:checked ~ .submenu-wrapper {
+/* ==========================================================================
+   NEW ACTIVE STATES (Replaces the checkbox/radio toggle system)
+   ========================================================================== */
+
+/* 1. When a category-item has the .active class, show its submenu column */
+.category-item.active .submenu-wrapper {
     display: block;
 }
 
-/* Optional: Add a clean bullet indicator next to the active open category */
-.toggle-checkbox:checked ~ .category-label::before {
+/* 2. Add the clean bullet next to the main category label */
+.category-item.active .category-label::before {
     content: "•";
     position: absolute;
-    left: -12px;
+    left: -10px;
     color: #24221b;
+    top:9%
 }
 
-/* --- Special handling for Home Screen overlay (White text) --- */
+/* 3. Add a clean bullet directly next to the active project link inside the column */
+.submenu-wrapper a.active-link::before {
+    content: "•";
+    position: absolute;
+    left: -10px;
+    color: #7d7b75;
+    top:9%
+}
+
+/* --- Home Page State adjustments --- */
 .home .submenu-wrapper a {
     color: rgba(255, 255, 255, 0.6) !important;
 }
-.home .submenu-wrapper a:hover {
+.home .submenu-wrapper a:hover,
+.home .submenu-wrapper a.active-link {
     color: #ffffff !important;
 }
-.home .toggle-checkbox:checked ~ .category-label::before {
+.home .category-item.active .category-label::before,
+.home .submenu-wrapper a.active-link::before {
     color: #ffffff;
 }

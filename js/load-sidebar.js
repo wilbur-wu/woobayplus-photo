@@ -16,18 +16,67 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
             container.innerHTML = data;
 
-            // 3. 如果在子页面，修正链接路径（可选，根据你之前的需求）
+            // ==========================================================================
+            // 核心功能 1：页面加载时，根据当前 URL 自动高亮并固开对应的分类与项目
+            // ==========================================================================
+            const currentPath = window.location.pathname;
+            const submenuLinks = container.querySelectorAll(".submenu-wrapper a");
+
+            submenuLinks.forEach(link => {
+                const href = link.getAttribute("href");
+                const cleanHref = href.replace("pages/", "").replace("../", "");
+
+                if (currentPath.includes(cleanHref)) {
+                    // 给活动项目链接加上圆点标记 class
+                    link.classList.add("active-link");
+
+                    // 向上寻找并展开它的固定父级分类列
+                    const parentCategory = link.closest(".category-item");
+                    if (parentCategory) {
+                        parentCategory.classList.add("active");
+                    }
+                }
+            });
+
+            // ==========================================================================
+            // 核心功能 2：鼠标点击事件 —— 允许用户自由切换分类
+            // ==========================================================================
+            const categories = container.querySelectorAll(".category-item");
+
+            categories.forEach(item => {
+                const label = item.querySelector(".category-label");
+                
+                if (label) {
+                    label.addEventListener("click", function(e) {
+                        // 阻止任何默认的点击跳转行为（如果标签是 span/label）
+                        e.preventDefault(); 
+
+                        // 如果点击的是已经打开的分类，则将其关闭
+                        if (item.classList.contains("active")) {
+                            item.classList.remove("active");
+                        } else {
+                            // 否则，先关闭所有其他的分类（排他性收起），再打开当前点击的分类
+                            categories.forEach(c => c.classList.remove("active"));
+                            item.classList.add("active");
+                        }
+                    });
+                }
+            });
+            // ==========================================================================
+
+            // 3. 如果在子页面，修正链接路径
             if (isInPages) {
                 container.querySelectorAll('a').forEach(link => {
                     const href = link.getAttribute('href');
                     if (href && !href.startsWith('http') && !href.startsWith('mailto:')) {
-                        link.setAttribute('href', '../' + href);
+                        if (!href.startsWith('../')) {
+                            link.setAttribute('href', '../' + href);
+                        }
                     }
                 });
             }
 
-            // 4. 【关键核心】无论在哪，加载完内容后立刻显示
-            // 延迟 50ms 是为了给浏览器留出渲染 HTML 的时间，从而触发 CSS transition
+            // 4. 加载完内容后立刻显示侧边栏
             setTimeout(() => {
                 container.classList.add('visible');
                 console.log("侧边栏已显示 (Visible class added)");
@@ -35,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(err => {
             console.error("侧边栏加载失败:", err);
-            // 如果加载失败，为了保底，可以直接让它显示（虽然内容是空的，但方便你调试）
             container.style.opacity = "1"; 
         });
 });
