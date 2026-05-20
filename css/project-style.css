@@ -15,7 +15,7 @@
 }
 
 .title-group h2 { 
-    font-size: 1.5rem; 
+    font-size: 1.2rem; 
     font-weight: bold;
     line-height: 1;
     color: #363636; 
@@ -31,9 +31,10 @@
 
 .description { 
     max-width: 700px; 
-    font-size: 1rem; 
+    font-size: 0.85rem; 
     color: #363636; 
     line-height: 1.2;
+    letter-spacing: 0.02rem;
 }
 
 /* --- 动态照片墙 (瀑布流) --- */

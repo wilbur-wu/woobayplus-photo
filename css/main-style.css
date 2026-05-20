@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+TC:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+SC:wght@200..900&family=Noto+Serif+TC:wght@200..900&display=swap');
+
 /* --- 基础重置 --- */
 * {
     margin: 0;
@@ -6,7 +10,7 @@
 }
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "EB Garamond", "Noto Serif TC", Helvetica, Arial, sans-serif;
     line-height: 1;
     background-color: #eaeeee;
 }
@@ -48,7 +52,7 @@ body {
 }
 
 .brand h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     line-height: 1.5;
     margin-bottom: 60px;
@@ -60,7 +64,7 @@ body {
 }
 
 .nav-links li {
-    margin-bottom: 6px;
+    margin-bottom: 9px;
 }
 
 .nav-links a {
@@ -167,7 +171,7 @@ body {
 }
 
 .submenu-wrapper li {
-    margin-bottom: 6px;
+    margin-bottom: 9px;
 }
 
 .submenu-wrapper a {
@@ -207,7 +211,7 @@ body {
     position: absolute;
     left: -10px;
     color: #7d7b75;
-    top:9%
+    top:25%
 }
 
 /* --- Home Page State adjustments --- */
