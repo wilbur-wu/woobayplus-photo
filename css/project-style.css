@@ -6,26 +6,31 @@
     padding: 43px;
 }
 
-/* 标题区域*/
+/* 标题区域 */
 .project-header {
     display: flex;
-    justify-content: space-between; /* 标题在左，描述在右 */
-    margin-bottom: 100px;
-    align-items: flex-start;
+    flex-direction: column;   /* 1. 改為垂直排列，讓 title-group 自動跑到 description 上面 */
+    align-items: flex-end;    /* 2. 關鍵：將裡面的子元素（標題與描述）整體推到最右邊 */
+    text-align: left;        /* 3. 讓文字內容本身的排版也向右看齊 */
+    margin-bottom: 90px;
+}
+
+.title-group {
+    margin-bottom: 24px;      /* 4. 建議加上這個，為標題群組與下方的描述之間留出一些呼吸空間 */
 }
 
 .title-group h2 { 
     font-size: 1.2rem; 
     font-weight: 450;
     line-height: 1;
-    color: #363636; 
+    color: #363636;
     margin-bottom: 12px;
 }
 
 .title-group h3 { 
     font-size: 1rem; 
     font-weight: normal;
-    line-height: 0.5;
+    line-height: 0.5;   
     color: #363636; 
 }
 
@@ -37,6 +42,7 @@
     line-height: 1.2;
     letter-spacing: 0.02rem;
 }
+
 
 /* --- 动态照片墙 (瀑布流) --- */
 .photo-columns {
