@@ -3,20 +3,20 @@
 
 .content-wrapper {
     margin-left: 280px; /* 与侧边栏宽度保持一致 */
-    padding: 60px;
+    padding: 43px;
 }
 
 /* 标题区域*/
 .project-header {
     display: flex;
     justify-content: space-between; /* 标题在左，描述在右 */
-    margin-bottom: 60px;
+    margin-bottom: 100px;
     align-items: flex-start;
 }
 
 .title-group h2 { 
     font-size: 1.2rem; 
-    font-weight: bold;
+    font-weight: 450;
     line-height: 1;
     color: #363636; 
     margin-bottom: 12px;
@@ -24,7 +24,7 @@
 
 .title-group h3 { 
     font-size: 1rem; 
-    font-weight: bold;
+    font-weight: normal;
     line-height: 0.5;
     color: #363636; 
 }
@@ -32,6 +32,7 @@
 .description { 
     max-width: 700px; 
     font-size: 0.85rem; 
+    font-weight: 300;
     color: #363636; 
     line-height: 1.2;
     letter-spacing: 0.02rem;
@@ -41,6 +42,9 @@
 .photo-columns {
     column-count: 3; /* 你可以根据喜好改为 2 或 3 */
     column-gap: 20px; /* 左右间距 */
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 .description p {
